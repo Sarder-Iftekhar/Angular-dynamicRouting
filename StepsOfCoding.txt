@@ -1,0 +1,51 @@
+1: Create Component( For example we created 3 component home, about, user)
+2:In app-routing.module.ts then In const routes specify routing
+ Ex:
+   const routes: Routes = [
+
+{
+  component:AboutComponent,
+  path:'about'
+},
+{
+  component:HomeComponent,
+  path:''
+},
+ {
+    component:UserComponent,
+    path:'user/:id'
+  }
+];
+Note: for home page we have specify '' empty path. See above code
+  component:HomeComponent,
+  path:''
+
+
+Note:look at the path:'user/:id', here according to id path is dynamically changed. But here har coded id is used in .html page. Here for only user path:'user/:id' is used, because we want to see different user information according to request id.
+
+Note: must import component
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
+
+
+3:In app.component.html we just showing which routerLink/route we will be included. 
+By using property binding we just bind the the component path.
+Note: For home page we must should bind blank"".
+
+<a routerLink="">Home</a>
+<br>
+<a routerLink="about">About</a>
+<br>
+<a routerLink="user">User</a>
+
+4:But showing each component html page you must include router-outlet
+
+<router-outlet></router-outlet>
+
+--------------------------------------------------yeah this is routing basic----------------------------------------
